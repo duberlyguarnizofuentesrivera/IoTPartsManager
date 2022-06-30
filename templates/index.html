@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>IoT Parts Manager, by Duberly Guarnizo</title>
+</head>
+<body>
+<div class="container text-center">
+    <div class="row">
+        <h1>IoT Parts Manager</h1>
+        <h2>By Duberly Guarnizo</h2>
+        <h3>Welcome to the IoT Parts Manager</h3>
+        <p>
+            This is a simple web application that allows you to manage your IoT parts.
+            You can add, edit, and delete parts.
+        </p>
+        <p>Currently there are <strong>{{parts|length}} </strong> items in stock. List is as follows:</p>
+        <table class="table table-striped my-3">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Stock</th>
+                <th>Stand</th>
+                <th>Row</th>
+                <th>Column</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for part in parts %}
+            <tr>
+                <td>{{part.part_id}}</td>
+                <td>{{part.name}}</td>
+                <td>{{part.category}}</td>
+                <td>{{part.stock}}</td>
+                <td>{{part.position.stand.name}}</td>
+                <td>{{part.position.row}}</td>
+                <td>{{part.position.col}}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <form method="post" action="/add_part">
+        <div class="row my-5">
+            <!-- Form to add a new part -->
+            <div class="col-6">
+                <label for="part_name">Part Name
+                    <input type="text" class="form-control" id="part_name" placeholder="Part Name" name="part_name">
+                </label>
+                <label for="part_category">Part Category
+                    <input type="text" class="form-control" id="part_category" placeholder="Part Category" name="part_category">
+                </label>
+                <label for="part_stock">Part Stock
+                    <input type="text" class="form-control" id="part_stock" placeholder="Part Stock" name="part_stock">
+                </label>
+            </div>
+            <div class="col-6">
+                <label for="part_stand">Part Stand
+                    <input type="text" class="form-control" id="part_stand" placeholder="Part Stand" name="part_stand">
+                </label>
+                <label for="part_row">Part Row
+                    <input type="text" class="form-control" id="part_row" placeholder="Part Row" name="part_row">
+                </label>
+                <label for="part_col">Part Column
+                    <input type="text" class="form-control" id="part_col" placeholder="Part Column" name="part_col">
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary my-3 d-grid gap-2 col-6 mx-auto">Add new Part</button>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+[
+    {
+        "category": "MCU",
+        "name": "Arduino",
+        "part_id": 1,
+        "position": {
+            "col": 1,
+            "row": 1,
+            "stand": {
+                "name": "Upper Stand"
+            }
+        },
+        "stock": 1
+    },
+    {
+        "category": "MCU",
+        "name": "ESP32",
+        "part_id": 2,
+        "position": {
+            "col": 2,
+            "row": 1,
+            "stand": {
+                "name": "Upper Stand"
+            }
+        },
+        "stock": 1
+    },
+    {
+        "category": "Sensors",
+        "name": "Humidity Sensor",
+        "part_id": 3,
+        "position": {
+            "col": 1,
+            "row": 1,
+            "stand": {
+                "name": "Green Container"
+            }
+        },
+        "stock": 3
+    },
+    {
+        "category": "Sensor",
+        "name": "Rain Sensor",
+        "part_id": 4,
+        "position": {
+            "col": 2,
+            "row": 1,
+            "stand": {
+                "name": "Green Container"
+            }
+        },
+        "stock": 1
+    },
+    {
+        "category": "Lights",
+        "name": "Yellow led",
+        "part_id": 5,
+        "position": {
+            "col": 1,
+            "row": 2,
+            "stand": {
+                "name": "Green Container"
+            }
+        },
+        "stock": 2
+    },
+    {
+        "category": "Lights",
+        "name": "Red led",
+        "part_id": 6,
+        "position": {
+            "col": "1",
+            "row": "2",
+            "stand": {
+                "name": "Blue Box"
+            }
+        },
+        "stock": "5"
+    }
+]
