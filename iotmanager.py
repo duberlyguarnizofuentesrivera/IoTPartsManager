@@ -9,11 +9,16 @@ class IoTManager:
         self.parts.append(part)
 
     def remove_part(self, part):
-        self.parts.remove(part)
+        if part in self.parts:
+            self.parts.remove(part)
 
-    def get_part(self, name):
+    def get_part(self, part_id):
+
+        if len(self.parts) == 0:
+            return None
         for part in self.parts:
-            if part.name == name:
+            print(part)
+            if part.part_id == part_id:
                 return part
         return None
 
@@ -32,9 +37,11 @@ class IoTManager:
     # IMPORTANT: this is where we implement persistence: we are saving the state of the iotmanager
     # into a JSON file. This is a state serialization technique. By Duberly Guarnizo.
     def json_save(self, filename):
+        # we have to delete the data in the file, so no duplicates are saved
         with open(filename, 'w') as f:
             f.write(json.dumps(self.parts, default=lambda o: o.__dict__, sort_keys=True, indent=4))
-# And this is where we implement persistence loading: we are loading the state of the iotmanager
+
+    # And this is where we implement persistence loading: we are loading the state of the iotmanager
     def json_load(self, filename):
         with open(filename, 'r') as f:
             self.parts = json.load(f)

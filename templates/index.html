@@ -9,14 +9,16 @@
 </head>
 <body>
 <div class="container text-center">
-    <div class="row">
+    <div class="row p-2">
         <h1>IoT Parts Manager</h1>
         <h2>By Duberly Guarnizo</h2>
         <h3>Welcome to the IoT Parts Manager</h3>
         <p>
             This is a simple web application that allows you to manage your IoT parts.
-            You can add, edit, and delete parts.
+            You can add, edit, and delete parts. This application uses <strong>JSON</strong> object serialization to
+            store the data. This application also requires <strong>Flask</strong> to run!!!
         </p>
+        <p><a class="btn btn-warning btn-sm" href="/load_demo">Load demo data</a></p>
         <p>Currently there are <strong>{{parts|length}} </strong> items in stock. List is as follows:</p>
         <table class="table table-striped my-3">
             <thead>
@@ -28,7 +30,7 @@
                 <th>Stand</th>
                 <th>Row</th>
                 <th>Column</th>
-                <th>Action</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -41,7 +43,7 @@
                 <td>{{part.position.stand.name}}</td>
                 <td>{{part.position.row}}</td>
                 <td>{{part.position.col}}</td>
-                <td></td>
+                <td><a class="btn btn-outline-danger text-white" href="remove_part/{{part.part_id}}">&#128465;</a></td>
             </tr>
             {% endfor %}
             </tbody>
@@ -55,10 +57,12 @@
                     <input type="text" class="form-control" id="part_name" placeholder="Part Name" name="part_name">
                 </label>
                 <label for="part_category">Part Category
-                    <input type="text" class="form-control" id="part_category" placeholder="Part Category" name="part_category">
+                    <input class="form-control" id="part_category" name="part_category" placeholder="Part Category"
+                           type="text">
                 </label>
                 <label for="part_stock">Part Stock
-                    <input type="text" class="form-control" id="part_stock" placeholder="Part Stock" name="part_stock">
+                    <input class="form-control" id="part_stock" name="part_stock" placeholder="Part Stock"
+                           type="number">
                 </label>
             </div>
             <div class="col-6">
@@ -66,10 +70,10 @@
                     <input type="text" class="form-control" id="part_stand" placeholder="Part Stand" name="part_stand">
                 </label>
                 <label for="part_row">Part Row
-                    <input type="text" class="form-control" id="part_row" placeholder="Part Row" name="part_row">
+                    <input class="form-control" id="part_row" name="part_row" placeholder="Part Row" type="number">
                 </label>
                 <label for="part_col">Part Column
-                    <input type="text" class="form-control" id="part_col" placeholder="Part Column" name="part_col">
+                    <input class="form-control" id="part_col" name="part_col" placeholder="Part Column" type="number">
                 </label>
             </div>
             <button type="submit" class="btn btn-primary my-3 d-grid gap-2 col-6 mx-auto">Add new Part</button>
